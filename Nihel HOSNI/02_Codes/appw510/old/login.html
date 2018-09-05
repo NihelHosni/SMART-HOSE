@@ -1,0 +1,57 @@
+<script type="text/javascript">
+function checklogin() {
+
+ if ((document.getElementById("email").value != "baha@telnet.net") || (document.getElementById("password").value != "baha123"))
+    {
+        alert ('Unregistered user or invalid password');
+        return false;
+    }
+    else
+            {$("#includedContent").load("home.html"); ;}
+}
+</script>
+<div class="colorful-page-wrapper">
+  <div class="center-block">
+    <div class="login-block">
+      <form action="" id="login-form" class="orb-form" method="post" >
+        <header>
+          Login to SmartHome</header>
+        <fieldset>
+          <section>
+            <div class="row">
+              <label class="label col col-4">E-mail</label>
+              <div class="col col-8">
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input id="email" type="email" name="email">
+                </label>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="row">
+              <label class="label col col-4">Password</label>
+              <div class="col col-8">
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <input id="password" type="password" name="password">
+                </label>
+                <div class="note"><a href="#">Forgot password?</a></div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="row">
+              <div class="col col-4"></div>
+              <div class="col col-8">
+                <label class="checkbox">
+                  <input type="checkbox" name="remember" checked>
+                  <i></i>Keep me logged in</label>
+              </div>
+            </div>
+          </section>
+        </fieldset>
+        <footer>
+          <button type="button" class="btn btn-default" onclick="return checklogin()">Log in</button> 
+        </footer>
+      </form>
+    </div>
+</div>

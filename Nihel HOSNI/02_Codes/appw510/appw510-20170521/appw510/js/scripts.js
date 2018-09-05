@@ -1,0 +1,7 @@
+   $.ajaxPrefilter(function (options){if (options.crossDomain && jQuery.support.cors){var http = (window.location.protocol === 'http:' ? 'http:' : 'https:'); options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;}});
+   $.get('http://telnet-innovation-labs.net/smarthome/appw510/login.html',function (response){$("#includedContent").html(response);});
+   function checklogin() {if ((document.getElementById("email").value != "nihel.baha@telnet.net")||(document.getElementById("password").value != "nihelbaha")){alert ('Unregistered user or invalid password'); return false;}else{$.get('http://telnet-innovation-labs.net/smarthome/appw510/home.html', function (response) { $("#includedContent").html(response);});}}
+
+   setInterval(function()
+                { var myElem = document.getElementById('homepage'); if (myElem === null) {;} else {var p = (document.getElementById("myonoffswitch1").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch2").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch3").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch4").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch5").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch6").checked ? 1:0);
+                $.get("http://192.168.137.106:80/a", {pin:p}, function(data){alert("hello!");if (data != null) {alert(data);} });}}, 5000);

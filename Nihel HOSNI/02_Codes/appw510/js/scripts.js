@@ -1,0 +1,3 @@
+   // $.ajaxPrefilter(function (options){if (options.crossDomain && jQuery.support.cors){var http = (window.location.protocol === 'http:' ? 'http:' : 'https:'); options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;}});
+   $.get('login.html',function (response){$("#includedContent").html(response);});
+   function checklogin() {if ((document.getElementById("email").value != "baha@telnet.net")||(document.getElementById("password").value != "baha123")){alert ('Unregistered user or invalid password'); return false;}else{$.get('http://telnet-innovation-labs.net/smarthome/appw510/home.html', function (response) { $("#includedContent").html(response);});}}

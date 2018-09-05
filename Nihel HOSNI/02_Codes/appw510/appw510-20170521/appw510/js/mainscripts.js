@@ -1,0 +1,6 @@
+    function checklogin() {if ((document.getElementById("email").value != "nihel.baha@telnet.net")||(document.getElementById("password").value != "nihelbaha")){alert ('Unregistered user or invalid password'); return false;}else{document.getElementById('mylogin').style.display = 'none';document.getElementById('homepage').style.display = 'block'; startsync(); return true;}}
+    function startsync() {
+    setInterval(function()
+                { var myElem = document.getElementById('homepage'); if (myElem === null) {;} else {var p = (document.getElementById("myonoffswitch1").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch2").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch3").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch4").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch5").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch6").checked ? 1:0);
+                $.get("http://192.168.137.106:80/a", {pin:p}, function(data){alert("hello!");if (data != null) {alert(data);} });}}, 5000);
+    }

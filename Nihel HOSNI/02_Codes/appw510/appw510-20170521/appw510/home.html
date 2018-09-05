@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMARTHOME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://telnet-innovation-labs.net/smarthome/appw510/css/styles.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+    function checklogin() {if ((document.getElementById("email").value != "nihel.baha@telnet.net")||(document.getElementById("password").value != "nihelbaha")){alert ('Unregistered user or invalid password'); return false;}else{alert ('OK'); document.getElementById('mylogin').style.display = 'none';document.getElementById('homepage').style.display = 'block'; startsync(); return true;}}
+   
+    function startsync() {
+    setInterval(function()
+                { var myElem = document.getElementById('homepage'); if (myElem === null) {;} else {var p = (document.getElementById("myonoffswitch1").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch2").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch3").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch4").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch5").checked ? 1:0)+'-'+(document.getElementById("myonoffswitch6").checked ? 1:0);
+                $.get("http://192.168.137.106:80/a", {pin:p}, function(data){alert("hello!");if (data != null) {alert(data);} });}}, 5000);
+    
+    }
+    </script>
+</head>
+<body>
+
+<div id ="mylogin" class="colorful-page-wrapper">
+  <div class="center-block">
+    <div class="login-block">
+      <form action="" id="login-form" class="orb-form" method="post" >
+        <header>
+          Login to SmartHome</header>
+        <fieldset>
+          <section>
+            <div class="row">
+              <label class="label col col-4">E-mail</label>
+              <div class="col col-8">
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input id="email" type="email" name="email">
+                </label>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="row">
+              <label class="label col col-4">Password</label>
+              <div class="col col-8">
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <input id="password" type="password" name="password">
+                </label>
+                <div class="note"><a href="#">Forgot password?</a></div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="row">
+              <div class="col col-4"></div>
+              <div class="col col-8">
+                <label class="checkbox">
+                  <input type="checkbox" name="remember" checked>
+                  <i></i>Keep me logged in</label>
+              </div>
+            </div>
+          </section>
+        </fieldset>
+        <footer>
+          <button type="button" class="btn btn-default" onclick="return checklogin()">Log in</button> 
+        </footer>
+      </form>
+    </div>
+</div>
+</div>
+
+<div id="homepage" class="smooth-overflow" style="display: none">
+        <nav class="main-header clearfix" role="navigation"> <a class="navbar-brand" href="index.html"><span class="text-blue">SMARTHOME</span></a> 
+        </nav>
+        <div class="main-wrap">
+            <div class="content-wrapper">
+                <div class="powerwidget cold-grey powerwidget-sortable" id="calendar-widget-index2" data-widget-editbutton="false" role="widget" style="">
+                    <header role="heading">
+                        <h2>Status</h2>
+                    </header>
+                    <div class="inner-spacer" role="content">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="col-md-4">
+                                    <div style="height:200px;background-color:#595f66;border-radius:3px">
+                                        <h5 class="pull-left" style="color:#fff;padding:1px 10px">Living Room</h5>
+                                        <div class="pull-right" style="padding:10px">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch1"></label>
+                                            </div>
+                                        </div>
+                                        <div style="padding-top: 36px;text-align: center;padding-left: 67px;">
+                                            <i style="font-size:120px;color:#fff" class="fa fa-4x fa-lightbulb-o" ></i>
+                                        </div>
+                                        <h5 style="color:#fff;padding:1px 10px">70 Wh<small  style="color:#fff;">E.C</small></h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div style="height:200px;background-color:#595f66;border-radius:3px">
+                                        <h5 class="pull-left" style="color:#fff;padding:1px 10px">Bed Room</h5>
+                                        <div class="pull-right" style="padding:10px">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch2"></label>
+                                            </div>
+                                        </div>
+                                        <div style="padding-top: 36px;text-align: center;padding-left: 67px;">
+                                            <i style="font-size:120px;color:#fff" class="fa fa-4x fa-lightbulb-o" ></i>
+                                        </div>
+                                        <h5 style="color:#fff;padding:1px 10px">70 Wh<small  style="color:#fff;">E.C</small></h5>
+                                    </div>
+                                </div> 
+                                <div class="col-md-4">
+                                    <div style="height:200px;background-color:#595f66;border-radius:3px">
+                                        <h5 class="pull-left" style="color:#fff;padding:1px 10px">Tv</h5>
+                                        <div class="pull-right" style="padding:10px">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch3"></label>
+                                            </div>
+                                        </div>
+                                        <div style="padding-top: 40px;text-align: center;padding-left: 49px;">
+                                            <i style="font-size:120px;color:#fff" class="fa fa-4x fa-television" ></i>
+                                        </div>
+                                        <h5 style="color:#fff;padding:1px 10px">150 Wh<small  style="color:#fff;">E.C</small></h5>
+                                    </div>
+                                </div> 
+                                <div class="col-md-4"  style="margin-top:10px">
+                                    <div style="height:200px;background-color:#595f66;border-radius:3px">
+                                        <h5 class="pull-left" style="color:#fff;padding:1px 10px">AC</h5>
+                                        <div class="pull-right" style="padding:10px">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch4"></label>
+                                            </div>
+                                        </div>
+                                        <div style="padding-top: 36px;text-align: center;padding-left: 67px;">
+                                            <i style="font-size:120px;color:#fff" class="fa fa-4x fa-snowflake-o" ></i>
+                                        </div>
+                                        <h5 style="color:#fff;padding:1px 10px">1500 Wh<small  style="color:#fff;">E.C</small></h5>
+                                    </div>
+                                </div> 
+                                <div class="col-md-4"  style="margin-top:10px">
+                                    <div style="height:200px;background-color:#595f66;border-radius:3px">
+                                        <h5 class="pull-left" style="color:#fff;padding:1px 10px">Shower</h5>
+                                        <div class="pull-right" style="padding:10px">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch5"></label>
+                                            </div>
+                                        </div>
+                                        <div style="padding-top: 36px;text-align: center;padding-left: 67px;">
+                                            <i style="font-size:120px;color:#fff" class="fa fa-4x fa-shower" ></i>
+                                        </div>
+                                        <h5 style="color:#fff;padding:1px 10px">350 Wh<small  style="color:#fff;">E.C</small></h5>
+                                    </div>
+                                </div> 
+                                <div class="col-md-4" style="margin-top:10px">
+                                    <div style="height:200px;background-color:#595f66;border-radius:3px">
+                                        <h5 class="pull-left" style="color:#fff;padding:1px 10px">Music</h5>
+                                        <div class="pull-right" style="padding:10px">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch6" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch6"></label>
+                                            </div>
+                                        </div>
+                                        <div style="padding-top: 36px;text-align: center;padding-left: 67px;">
+                                            <i style="font-size:120px;color:#fff" class="fa fa-4x fa-volume-up" ></i>
+                                        </div>
+                                        <h5 style="color:#fff;padding:1px 10px">90 Wh<small  style="color:#fff;">E.C</small></h5>
+                                    </div>
+                                </div>                                 
+                            </div>
+                            <div class="col-md-4">
+                                <div class="weather-block bg-blue">
+                                    <div class="weather-current-city">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <span class="current-city">Tunisia, tunis</span><span class="current-temp">22°C</span><span class="current-day">Saturday, 28 June</span>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <span class="current-day-icon">
+                                                    <canvas id="clear-day" width="120" height="120"></canvas>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="days" style="height:254px;padding-top:35px">
+                                            <h2 style="color:#fff;margin-right:20px;text-align:center">Energy Produced :</h2>
+                                            <h1 style="color:#fff;margin-right:20px;text-align:center;font-size:100px">7 Kwh</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row" style="padding-top:18px;padding-left:13px">
+                                    <ul class="countries-demo" id="choices">
+                                        <li class="col-md-4">
+                                            <h3>2230 Wh</h3>
+                                            Total consumed energy
+                                        </li>
+                                        <li class="col-md-4">
+                                            <h3>04:48:35</h3>
+                                            Remaining time
+                                        </li>
+                                        <li class="col-md-4">
+                                            <h3>10 000 Wh</h3>
+                                            Battery
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
